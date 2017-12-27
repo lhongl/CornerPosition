@@ -10,7 +10,7 @@
 #import <objc/runtime.h>
 
 static NSString * const DACornerPositionKey = @"DACornerPositionKey";
-static NSString * const HGCornerRadiusKey = @"HGCornerRadiusKey";
+static NSString * const DACornerRadiusKey = @"DACornerRadiusKey";
 @implementation UIView (DACorner)
 @dynamic da_cornerPosition;
 - (DACornerPosition)da_cornerPosition
@@ -18,20 +18,18 @@ static NSString * const HGCornerRadiusKey = @"HGCornerRadiusKey";
     return [objc_getAssociatedObject(self, &DACornerPositionKey) integerValue];
 }
 
-- (void)setda_cornerPosition:(DACornerPosition)da_cornerPosition
-{
+- (void)setDa_cornerPosition:(DACornerPosition)da_cornerPosition{
     objc_setAssociatedObject(self, &DACornerPositionKey, @(da_cornerPosition), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @dynamic da_cornerRadius;
 - (CGFloat)da_cornerRadius
 {
-    return [objc_getAssociatedObject(self, &HGCornerRadiusKey) floatValue];
+    return [objc_getAssociatedObject(self, &DACornerRadiusKey) floatValue];
 }
 
-- (void)setda_cornerRadius:(CGFloat)da_cornerRadius
-{
-    objc_setAssociatedObject(self, &HGCornerRadiusKey, @(da_cornerRadius), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setDa_cornerRadius:(CGFloat)da_cornerRadius{
+    objc_setAssociatedObject(self, &DACornerRadiusKey, @(da_cornerRadius), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 + (void)load
